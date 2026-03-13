@@ -1,0 +1,2898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KNUCK. | Utah Catering</title>
+  <link rel="icon" type="image/jpeg" href="Logo%20Mascota/knuck-mascot.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="Logo%20Mascota/knuck-mascot.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bone: #f5f0e8;
+      --bone-2: #ede7dc;
+      --ink: #1a1a1a;
+      --ink-2: #111111;
+      --panel: #171717;
+      --panel-2: #202020;
+      --ember: #c0392b;
+      --gold: #d4a843;
+      --line: #2a2a2a;
+      --muted: #8a8a8a;
+      --soft: #b1a89a;
+      --radius: 14px;
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      --container: 1160px;
+      --nav-h: 68px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--bone);
+      font-family: 'Special Elite', cursive;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--container), 92vw);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      padding: 88px 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: calc(var(--nav-h) + 20px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-cream {
+      background: var(--bone);
+      color: var(--ink);
+    }
+
+    .section-head {
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 4px;
+      font-size: 12px;
+      color: var(--ember);
+      text-transform: uppercase;
+    }
+
+    .eyebrow::after {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+      line-height: 0.95;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .display {
+      font-size: clamp(56px, 13vw, 150px);
+      letter-spacing: -2px;
+    }
+
+    .title-xl {
+      font-size: clamp(42px, 8vw, 72px);
+      letter-spacing: -1px;
+    }
+
+    .title-lg {
+      font-size: clamp(34px, 5.2vw, 56px);
+    }
+
+    .title-md {
+      font-size: clamp(26px, 3.2vw, 38px);
+    }
+
+    .lead {
+      font-size: 15px;
+      color: var(--soft);
+      max-width: 72ch;
+    }
+
+    .section-cream .lead {
+      color: #544f47;
+    }
+
+    .mascot-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid #d4c2ab;
+      background: rgba(255, 250, 242, 0.75);
+      color: #4a433a;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1.5px;
+      font-size: 12px;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .mascot-chip img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      border-radius: 999px;
+      border: 1px solid #d7c7b2;
+      background: #121212;
+      padding: 1px;
+    }
+
+    .trust-section {
+      padding: 54px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .trust-card {
+      border: 1px solid #2f2f2f;
+      border-left: 3px solid var(--ember);
+      border-radius: 10px;
+      background: #131313;
+      padding: 12px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .trust-card h3 {
+      font-size: 20px;
+      color: var(--bone);
+    }
+
+    .trust-card p {
+      font-size: 12px;
+      color: #aba297;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 14px;
+      padding: 13px 22px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--ember);
+      color: var(--bone);
+    }
+
+    .btn-primary:hover {
+      background: #a93125;
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: var(--bone);
+      border-color: var(--ink);
+    }
+
+    .btn-dark:hover {
+      background: #000;
+    }
+
+    .btn-ghost {
+      border-color: #404040;
+      color: var(--bone);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--bone);
+    }
+
+    .section-cream .btn-ghost {
+      border-color: #6e655a;
+      color: var(--ink);
+    }
+
+    .section-cream .btn-ghost:hover {
+      border-color: var(--ink);
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    @media (hover: hover) {
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+    }
+
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 150;
+      height: var(--nav-h);
+      background: rgba(15, 15, 15, 0.94);
+      border-bottom: 1px solid #292929;
+      backdrop-filter: blur(6px);
+    }
+
+    .nav-inner {
+      width: min(var(--container), 94vw);
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 2px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .brand .dot {
+      color: var(--ember);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #9b9b9b;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--bone);
+    }
+
+    .nav-links .cta-link {
+      color: var(--bone);
+      background: var(--ember);
+      padding: 8px 12px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid #444;
+      color: var(--bone);
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+      padding: 7px 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: 96vh;
+      padding-top: calc(var(--nav-h) + 30px);
+      display: grid;
+      align-items: end;
+      background:
+        radial-gradient(1200px 500px at 70% 20%, rgba(192, 57, 43, 0.25), transparent 58%),
+        linear-gradient(180deg, rgba(17, 17, 17, 0.82) 0%, rgba(17, 17, 17, 0.9) 58%, rgba(17, 17, 17, 0.98) 100%),
+        linear-gradient(120deg, #251f1d 0%, #0f0f0f 50%, #1f1a17 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: end;
+      padding-bottom: 58px;
+    }
+
+    .hero-copy .kicker {
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #c9bfb0;
+      margin-bottom: 10px;
+    }
+
+    .hero-copy h1 {
+      margin-bottom: 14px;
+    }
+
+    .hero-copy h1 .dot {
+      color: var(--ember);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: #ddd1bf;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+
+    .hero-tag::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--ember);
+    }
+
+    .hero-ab {
+      margin-top: 2px;
+      min-height: 46px;
+    }
+
+    .hero-ab-copy {
+      display: none;
+      color: #dfd4c5;
+      font-size: 15px;
+      max-width: 66ch;
+    }
+
+    .hero-ab-copy.active {
+      display: block;
+    }
+
+    .hero-proof {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hero-proof span {
+      background: rgba(245, 240, 232, 0.08);
+      border: 1px solid rgba(245, 240, 232, 0.2);
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: #d4c8ba;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-callouts {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+      max-width: 720px;
+    }
+
+    .hero-callouts p {
+      color: #b8aea1;
+      font-size: 14px;
+    }
+
+    .hero-panel {
+      background: rgba(245, 240, 232, 0.06);
+      border: 1px solid rgba(245, 240, 232, 0.12);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-mascot-art {
+      width: min(320px, 100%);
+      max-height: 320px;
+      object-fit: contain;
+      margin: 0 auto 2px;
+      filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.45));
+    }
+
+    .hero-panel h3 {
+      font-size: 25px;
+      color: #f8f1e7;
+    }
+
+    .hero-panel p {
+      color: #c6bbab;
+      font-size: 13px;
+    }
+
+    .hero-list {
+      display: grid;
+      gap: 6px;
+      list-style: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: #d2c8bb;
+    }
+
+    .hero-list li::before {
+      content: "*";
+      color: var(--ember);
+      margin-right: 8px;
+    }
+
+    .quick-band {
+      background: var(--ember);
+      border-bottom: 1px solid #9d2f23;
+    }
+
+    .quick-band .container {
+      padding: 12px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quick-band span {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 13px;
+      color: var(--bone);
+      white-space: nowrap;
+    }
+
+    .quick-band i {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(245, 240, 232, 0.5);
+      display: inline-block;
+    }
+
+    .menu-layout {
+      display: grid;
+      gap: 24px;
+    }
+
+    .menu-pricing-note {
+      background: #f0e8dc;
+      border: 1px solid #d6cabc;
+      border-left: 4px solid var(--ember);
+      padding: 14px 16px;
+      color: #3c352c;
+      font-size: 13px;
+      max-width: 640px;
+    }
+
+    .menu-quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .menu-quick-nav a {
+      border: 1px solid #cebfae;
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: #4a4339;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1.5px;
+      font-size: 11px;
+      text-transform: uppercase;
+      background: #fcf7ef;
+    }
+
+    .menu-quick-nav a:hover {
+      border-color: #a89177;
+      background: #f5eddf;
+    }
+
+    .compare-wrap {
+      border: 1px solid #d9ccb9;
+      border-radius: 10px;
+      background: #fff9f0;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .compare-head h3 {
+      font-size: 28px;
+      color: var(--ink);
+      line-height: 0.95;
+    }
+
+    .compare-head p {
+      color: #5d5449;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .compare-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .compare-table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px dotted #cbb9a3;
+      font-size: 12px;
+      color: #4f473c;
+      vertical-align: middle;
+    }
+
+    .compare-table th {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #231f1b;
+      font-size: 15px;
+      background: #f6eee2;
+    }
+
+    .compare-table .highlight td {
+      background: #fff2ea;
+    }
+
+    .compare-pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid #c68e85;
+      background: #f8e1dd;
+      color: #7f3025;
+      padding: 3px 8px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .menu-group-title {
+      font-size: 34px;
+      color: var(--ink);
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
+
+    .menu-group-sub {
+      color: #5e564b;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .menu-card {
+      background: #fffaf2;
+      border: 1px solid #d9ccbb;
+      border-top: 4px solid var(--ember);
+      border-radius: 10px;
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+      min-height: 100%;
+      position: relative;
+    }
+
+    .menu-card.featured {
+      border-color: #d6b4a8;
+      box-shadow: 0 12px 24px rgba(192, 57, 43, 0.14);
+    }
+
+    .menu-card.premium {
+      border-top-color: var(--ink);
+      border-color: #cec0ad;
+      box-shadow: 0 12px 24px rgba(17, 17, 17, 0.12);
+    }
+
+    .menu-card h4 {
+      font-size: 25px;
+      color: var(--ink);
+      letter-spacing: 1px;
+    }
+
+    .menu-card .desc {
+      color: #4f473d;
+      font-size: 13px;
+    }
+
+    .menu-card .includes {
+      color: #61584e;
+      font-size: 12px;
+      line-height: 1.5;
+      border-top: 1px dashed #cfbda8;
+      padding-top: 8px;
+    }
+
+    .price-row {
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .price-pill {
+      background: var(--ink);
+      color: var(--bone);
+      padding: 9px 10px;
+      border-radius: 8px;
+      text-align: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    .sides-wrap {
+      background: #fffaf2;
+      border: 1px solid #d9ccbb;
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .side-extra-note {
+      margin-top: 10px;
+      color: #5b5348;
+      font-size: 13px;
+    }
+
+    .side-row {
+      display: grid;
+      grid-template-columns: 1.2fr 2fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px dotted #cdbda9;
+      color: #3f382f;
+      font-size: 13px;
+    }
+
+    .side-row:last-child {
+      border-bottom: none;
+    }
+
+    .side-row strong {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .side-row .price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--ink);
+      letter-spacing: 1px;
+    }
+
+    .menu-notes {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+      color: #4e463c;
+      font-size: 13px;
+    }
+
+    .menu-notes p::before {
+      content: "*";
+      margin-right: 8px;
+      color: var(--ember);
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .package-card {
+      background: #fffaf2;
+      border: 1px solid #d9ccbb;
+      border-top: 4px solid var(--ink);
+      border-radius: 12px;
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+      min-height: 100%;
+      position: relative;
+    }
+
+    .package-card.featured {
+      border-color: #d6b4a8;
+      border-top-color: var(--ember);
+      box-shadow: 0 18px 34px rgba(192, 57, 43, 0.15);
+      transform: translateY(-6px);
+    }
+
+    .pickup-note::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: #121212 url("Logo%20Mascota/knuck-mascot.jpg") center/85% no-repeat;
+      border: 1px solid rgba(245, 240, 232, 0.38);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      right: 14px;
+      background: var(--ember);
+      color: var(--bone);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .popular-badge.value {
+      background: #a93125;
+    }
+
+    .popular-badge.premium {
+      background: var(--ink);
+      border: 1px solid #454545;
+    }
+
+    .package-name {
+      font-size: 34px;
+      color: var(--ink);
+      line-height: 0.9;
+    }
+
+    .package-desc {
+      color: #5a5248;
+      font-size: 13px;
+    }
+
+    .package-includes {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      border-top: 1px dashed #cfbda8;
+      border-bottom: 1px dashed #cfbda8;
+      padding: 10px 0;
+      color: #4d453b;
+      font-size: 13px;
+    }
+
+    .package-includes li::before {
+      content: "*";
+      color: var(--ember);
+      margin-right: 7px;
+    }
+
+    .package-prices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .package-note {
+      color: #5f564b;
+      font-size: 12px;
+      margin-top: auto;
+    }
+
+    @media (hover: hover) {
+      .package-card:hover,
+      .menu-card:hover,
+      .drink-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .info-card:hover,
+      .note-card:hover {
+        border-color: #3a3a3a;
+      }
+    }
+
+    .drink-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .drink-card {
+      background: #fffaf2;
+      border: 1px solid #d9ccbb;
+      border-radius: 10px;
+      padding: 14px;
+      display: grid;
+      gap: 9px;
+    }
+
+    .drink-card h4 {
+      font-size: 26px;
+      color: var(--ink);
+      line-height: 0.92;
+    }
+
+    .drink-card .desc {
+      color: #5a5248;
+      font-size: 13px;
+    }
+
+    .drink-list {
+      list-style: none;
+      display: grid;
+      gap: 5px;
+      color: #4d453b;
+      font-size: 13px;
+    }
+
+    .drink-list li::before {
+      content: "*";
+      color: var(--ember);
+      margin-right: 7px;
+    }
+
+    .drink-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+      color: var(--ink);
+    }
+
+    .coffee-note {
+      margin-top: 14px;
+      border: 1px dashed #cfbda8;
+      border-left: 4px solid var(--ember);
+      background: #fffaf2;
+      border-radius: 10px;
+      padding: 14px;
+      color: #4f473d;
+      font-size: 13px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .coffee-note h4 {
+      font-size: 25px;
+      color: var(--ink);
+    }
+
+    .coffee-service-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 10px;
+    }
+
+    .coffee-features {
+      list-style: none;
+      display: grid;
+      gap: 5px;
+      color: #4f473d;
+      font-size: 13px;
+    }
+
+    .coffee-features li::before {
+      content: "*";
+      margin-right: 7px;
+      color: var(--ember);
+    }
+
+    .coffee-visual {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #d7c7b2;
+      background: #fff8ef;
+      min-height: 230px;
+    }
+
+    .coffee-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pickup-note {
+      position: relative;
+      margin-top: 12px;
+      border: 1px solid #3a342d;
+      border-left: 4px solid var(--ember);
+      background: linear-gradient(130deg, #181512, #0f0f0f 72%, #1d1512);
+      border-radius: 10px;
+      padding: 14px 14px 14px 52px;
+      color: #d7ccbd;
+      font-size: 13px;
+      display: grid;
+      gap: 7px;
+      overflow: hidden;
+    }
+
+    .pickup-note h4 {
+      font-size: 24px;
+      color: var(--bone);
+    }
+
+    .pickup-save {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      background: rgba(192, 57, 43, 0.22);
+      color: #f2ddd8;
+      border: 1px solid rgba(192, 57, 43, 0.6);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1.5px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .planning-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .info-card {
+      background: var(--panel);
+      border: 1px solid #2d2d2d;
+      border-radius: 10px;
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .info-card h3 {
+      font-size: 25px;
+      color: var(--bone);
+    }
+
+    .info-card p,
+    .info-card li {
+      font-size: 13px;
+      color: #b8b8b8;
+    }
+
+    .info-card ul {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .info-card ul li::before {
+      content: "*";
+      color: var(--ember);
+      margin-right: 7px;
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .fit-card {
+      background: #121212;
+      border: 1px solid #282828;
+      border-left: 3px solid var(--ember);
+      padding: 12px;
+      border-radius: 8px;
+      display: grid;
+      gap: 7px;
+    }
+
+    .fit-card h4 {
+      font-size: 21px;
+      color: var(--bone);
+    }
+
+    .fit-card p {
+      color: #a8a8a8;
+      font-size: 12px;
+    }
+
+    .planning-cta {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid #313131;
+      background: #141414;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .planning-cta p {
+      color: #b4b4b4;
+      font-size: 13px;
+      max-width: 60ch;
+    }
+
+    .gallery-intro {
+      max-width: 78ch;
+      color: #554e45;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    .gallery-disclosure {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #6a6258;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    .gallery-group {
+      border: 1px solid #d6c8b6;
+      border-radius: 10px;
+      background: #fff9f0;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+      align-self: start;
+      height: auto;
+    }
+
+    .gallery-group h3 {
+      font-size: 26px;
+      color: var(--ink);
+    }
+
+    .gallery-track {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .gallery-track.single {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-ph {
+      border: 1px dashed #b8a58f;
+      border-radius: 8px;
+      min-height: 140px;
+      background:
+        linear-gradient(150deg, rgba(192, 57, 43, 0.12), rgba(20, 20, 20, 0.08)),
+        repeating-linear-gradient(45deg, rgba(0,0,0,0.03), rgba(0,0,0,0.03) 8px, rgba(255,255,255,0.03) 8px, rgba(255,255,255,0.03) 16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+      color: #5f564c;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .gallery-ph.real {
+      padding: 0;
+      overflow: hidden;
+      border-style: solid;
+      height: 220px;
+      min-height: 220px;
+    }
+
+    .gallery-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 7px;
+      display: block;
+    }
+
+    .gallery-photo.contain {
+      object-fit: contain;
+      background: #161616;
+    }
+
+    .order-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .order-form {
+      background: #181818;
+      border: 1px solid #2d2d2d;
+      border-radius: 12px;
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 5px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-note {
+      grid-column: 1 / -1;
+      color: #b7aea1;
+      font-size: 12px;
+      margin-top: -2px;
+    }
+
+    .form-note.active {
+      color: #e7c9c0;
+      font-size: 13px;
+    }
+
+    .form-advanced {
+      border: 1px dashed #3a3a3a;
+      border-radius: 8px;
+      background: #131313;
+      padding: 10px;
+    }
+
+    .form-advanced summary {
+      list-style: none;
+      cursor: pointer;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: #d7ccbe;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-advanced summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .form-advanced summary::after {
+      content: "+";
+      color: var(--ember);
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .form-advanced[open] summary::after {
+      content: "-";
+    }
+
+    .advanced-grid {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    label {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: #d8cdbf;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #383838;
+      border-radius: 7px;
+      background: #101010;
+      color: var(--bone);
+      font-family: 'Special Elite', cursive;
+      font-size: 13px;
+      padding: 10px 11px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--ember);
+    }
+
+    .order-side {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .note-card {
+      background: #151515;
+      border: 1px solid #2e2e2e;
+      border-radius: 10px;
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .note-card h3 {
+      font-size: 24px;
+      color: var(--bone);
+    }
+
+    .note-card p,
+    .note-card li {
+      color: #b7b7b7;
+      font-size: 13px;
+    }
+
+    .note-card ul {
+      list-style: none;
+      display: grid;
+      gap: 7px;
+    }
+
+    .note-card ul li::before {
+      content: "*";
+      color: var(--ember);
+      margin-right: 7px;
+    }
+
+    .policy-intro {
+      max-width: 80ch;
+      color: #544e45;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .policy-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    details.policy {
+      border: 1px solid #d8c7b2;
+      border-radius: 9px;
+      background: #fffaf2;
+      overflow: hidden;
+    }
+
+    details.policy summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 12px 14px;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 19px;
+      color: var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    details.policy summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.policy summary::after {
+      content: "+";
+      color: var(--ember);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    details.policy[open] summary::after {
+      content: "-";
+    }
+
+    .policy-body {
+      padding: 0 14px 13px;
+      border-top: 1px dashed #dbcbb8;
+      color: #524b42;
+      font-size: 13px;
+    }
+
+    .policy-body p {
+      padding-top: 10px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .about-copy {
+      display: grid;
+      gap: 14px;
+    }
+
+    .about-copy p {
+      color: #b8aea1;
+      font-size: 14px;
+    }
+
+    .about-panels {
+      display: grid;
+      gap: 12px;
+    }
+
+    .about-box {
+      background: #151515;
+      border: 1px solid #2d2d2d;
+      border-left: 3px solid var(--ember);
+      padding: 13px;
+      border-radius: 8px;
+    }
+
+    .about-box h3 {
+      font-size: 23px;
+      margin-bottom: 6px;
+    }
+
+    .about-box p {
+      color: #b3b3b3;
+      font-size: 13px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact-card {
+      background: #fff9f1;
+      border: 1px solid #d7c8b4;
+      border-radius: 10px;
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-item {
+      display: grid;
+      gap: 3px;
+      padding-bottom: 9px;
+      border-bottom: 1px dotted #ccb8a1;
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .contact-item .label {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: #715f4d;
+    }
+
+    .contact-item .value {
+      font-size: 14px;
+      color: #2b2824;
+      word-break: break-word;
+    }
+
+    .service-area-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px 10px;
+      font-size: 13px;
+      color: #3f3a34;
+      list-style: none;
+    }
+
+    .service-area-list li::before {
+      content: "*";
+      color: var(--ember);
+      margin-right: 7px;
+    }
+
+    .cta-strip {
+      background: linear-gradient(90deg, #1b1b1b, #131313 65%, #1f1613);
+      border-top: 1px solid #2b2b2b;
+      border-bottom: 1px solid #2b2b2b;
+    }
+
+    .cta-strip .container {
+      padding: 24px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px 16px;
+    }
+
+    .cta-strip h3 {
+      font-size: 34px;
+    }
+
+    .cta-strip p {
+      color: #b6ada1;
+      font-size: 13px;
+      max-width: 62ch;
+    }
+
+    footer {
+      background: var(--ink-2);
+      padding: 30px 0 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #262626;
+      padding-bottom: 16px;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 44px;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .footer-brand span {
+      color: var(--ember);
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+    }
+
+    .footer-nav a {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: #888;
+    }
+
+    .footer-nav a:hover {
+      color: var(--bone);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 14px;
+      color: #626262;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .footer-bottom strong {
+      color: var(--ember);
+      font-weight: 400;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 1160px) {
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+        letter-spacing: 2px;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .planning-grid,
+      .order-wrap,
+      .coffee-service-wrap,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid,
+      .fit-grid,
+      .trust-grid,
+      .package-grid,
+      .drink-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .package-card.featured {
+        transform: none;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .site-nav {
+        height: auto;
+        min-height: var(--nav-h);
+      }
+
+      .nav-inner {
+        min-height: var(--nav-h);
+        padding: 10px 0;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(var(--nav-h) - 2px);
+        left: 0;
+        right: 0;
+        background: rgba(17, 17, 17, 0.98);
+        border-bottom: 1px solid #2b2b2b;
+        padding: 12px min(4vw, 26px) 14px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: calc(var(--nav-h) + 54px);
+      }
+
+      .hero-grid {
+        padding-bottom: 42px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section {
+        padding: 68px 0;
+      }
+
+      .form-grid,
+      .side-row,
+      .service-area-list,
+      .gallery-track {
+        grid-template-columns: 1fr;
+      }
+
+      .advanced-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid,
+      .fit-grid,
+      .trust-grid,
+      .package-grid,
+      .drink-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-row {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-band .container {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home">KNUCK<span class="dot">.</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteLinks">Menu</button>
+      <ul class="nav-links" id="siteLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#event-planning">Event Planning</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#place-order">Place Order</a></li>
+        <li><a href="#policies">Policies</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="cta-link" href="#place-order">Book</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Utah Fire-Driven Catering</p>
+          <h1 class="display">KNUCK<span class="dot">.</span></h1>
+          <p class="hero-tag">Cooked with Fire. Served with Pride.</p>
+          <div class="hero-ab" aria-live="polite">
+            <p class="hero-ab-copy active" data-hero-variant="a">Fire-driven Utah catering centered on slow-roasted pork knuckle for weddings, corporate events, and private parties.</p>
+            <p class="hero-ab-copy" data-hero-variant="b">Premium comfort-meat catering that makes your event feel elevated, memorable, and easy to host.</p>
+          </div>
+          <div class="hero-proof" aria-label="Quick trust cues">
+            <span>Most Events Pick Feast</span>
+            <span>2-Minute Request Form</span>
+            <span>Pickup Saves Service Fee</span>
+          </div>
+          <div class="hero-callouts">
+            <p>From Lehi to Provo to Salt Lake City suburbs, we bring unforgettable flavor, serious portions, and clean event execution.</p>
+          </div>
+          <div class="btn-row" style="margin-top:20px;">
+            <a class="btn btn-primary" href="#menu">View Menu</a>
+            <a class="btn btn-ghost" href="#place-order">Place an Order</a>
+            <a class="btn btn-ghost" href="tel:+18018823386">Call Now</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Hero highlights">
+          <img class="hero-mascot-art" src="Logo%20Mascota/knuck-mascot.jpg" alt="KNUCK mascot">
+          <h3>Built For Events That Need Presence</h3>
+          <p>Weddings, corporate lunches, private parties, hotel and venue service in Lehi, Orem, Provo, American Fork, Draper, and nearby cities.</p>
+          <ul class="hero-list">
+            <li>Signature slow-roasted pork knuckle</li>
+            <li>Buffet and plated service options</li>
+            <li>Minimum 20 guests</li>
+            <li>Premium comfort-meat catering</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <div class="quick-band" aria-hidden="true">
+      <div class="container">
+        <span>Pork Knuckle Hero</span><i></i>
+        <span>Weddings</span><i></i>
+        <span>Corporate Lunches</span><i></i>
+        <span>Private Parties</span><i></i>
+        <span>Utah County + SLC Suburbs</span>
+      </div>
+    </div>
+
+    <section class="section trust-section" aria-label="Trust highlights">
+      <div class="container">
+        <div class="trust-grid">
+          <article class="trust-card">
+            <h3>Fast Response</h3>
+            <p>Most quote requests get a reply in one business day.</p>
+          </article>
+          <article class="trust-card">
+            <h3>Event-Ready Scale</h3>
+            <p>Built for 20+ guests with buffet or plated execution.</p>
+          </article>
+          <article class="trust-card">
+            <h3>Local Coverage</h3>
+            <p>Free delivery/setup in Lehi and Provo. SLC suburbs +$30.</p>
+          </article>
+          <article class="trust-card">
+            <h3>Pickup Savings</h3>
+            <p>Pickup from Lehi skips the standard 20% service fee.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream" id="menu">
+      <div class="container menu-layout">
+        <header class="section-head">
+          <p class="eyebrow">Menu</p>
+          <h2 class="title-xl">Catering Packages</h2>
+          <p class="lead">Built for weddings, corporate events, and private gatherings. Generous portions, bold flavor, and fire-cooked food your guests will remember.</p>
+          <div class="mascot-chip">
+            <img src="Logo%20Mascota/knuck-mascot.jpg" alt="KNUCK mascot badge" loading="lazy" decoding="async">
+            Fire-Approved Menu Tiers
+          </div>
+        </header>
+
+        <div class="menu-pricing-note">
+          Prices are per person, food only.<br>
+          Minimum 20 guests.<br>
+          20% service fee and tax added.
+        </div>
+
+        <nav class="menu-quick-nav" aria-label="Menu section quick links">
+          <a href="#menu-packages">Packages</a>
+          <a href="#menu-buffet">Buffet</a>
+          <a href="#menu-mignon">Mignon Buffet</a>
+          <a href="#menu-plated">Plated</a>
+          <a href="#menu-sides">Sides</a>
+          <a href="#menu-drinks">Drinks</a>
+          <a href="#menu-coffee">Coffee</a>
+          <a href="#menu-pricing-notes">Pricing Notes</a>
+        </nav>
+
+        <div class="compare-wrap" aria-label="Quick package comparison for planners">
+          <div class="compare-head">
+            <h3>Corporate Planner Quick Compare</h3>
+            <p>Need a fast recommendation? Start with Feast Package. It is our strongest balance of value, portions, and event consistency.</p>
+          </div>
+          <div class="compare-table-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Package</th>
+                  <th>Lunch</th>
+                  <th>Dinner</th>
+                  <th>Sides</th>
+                  <th>Best For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Base</td>
+                  <td>$28</td>
+                  <td>$34</td>
+                  <td>1 side</td>
+                  <td>Light lunches, simple service</td>
+                </tr>
+                <tr class="highlight">
+                  <td>Feast Package <span class="compare-pill">Most Popular</span></td>
+                  <td>$32</td>
+                  <td>$38</td>
+                  <td>2 sides</td>
+                  <td>Corporate teams, weddings, private events</td>
+                </tr>
+                <tr>
+                  <td>Fire Feast <span class="compare-pill">Best Value</span></td>
+                  <td>$38</td>
+                  <td>$44</td>
+                  <td>3 sides</td>
+                  <td>Fuller spread, premium presentation</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="menu-packages">
+          <div class="package-grid">
+            <article class="package-card">
+              <h3 class="package-name">Base</h3>
+              <p class="package-desc">A simple option for ultra-casual events.</p>
+              <ul class="package-includes">
+                <li>Slow roasted pork knuckle</li>
+                <li>Choice of 1 side</li>
+              </ul>
+              <div class="package-prices">
+                <div class="price-pill">Lunch: $28</div>
+                <div class="price-pill">Dinner: $34</div>
+              </div>
+              <p class="package-note">Great for lighter lunches, small gatherings, and simple event service.</p>
+            </article>
+
+            <article class="package-card featured">
+              <span class="popular-badge">Most Popular</span>
+              <h3 class="package-name">Feast Package</h3>
+              <p class="package-desc">The standard KNUCK experience.</p>
+              <ul class="package-includes">
+                <li>Slow roasted pork knuckle</li>
+                <li>Choice of 2 sides</li>
+              </ul>
+              <div class="package-prices">
+                <div class="price-pill">Lunch: $32</div>
+                <div class="price-pill">Dinner: $38</div>
+              </div>
+              <p class="package-note">Balanced, satisfying, and ideal for most events.</p>
+            </article>
+
+            <article class="package-card">
+              <span class="popular-badge value">Best Value</span>
+              <h3 class="package-name">Fire Feast</h3>
+              <p class="package-desc">A fuller spread with one more side for a complete feast.</p>
+              <ul class="package-includes">
+                <li>Slow roasted pork knuckle</li>
+                <li>Choice of 3 sides</li>
+              </ul>
+              <div class="package-prices">
+                <div class="price-pill">Lunch: $38</div>
+                <div class="price-pill">Dinner: $44</div>
+              </div>
+              <p class="package-note">Best for larger appetites, stronger presentation, and fuller event tables.</p>
+            </article>
+          </div>
+        </div>
+
+        <div id="menu-buffet">
+          <h3 class="menu-group-title">Buffet Service</h3>
+          <p class="menu-group-sub">Fast, social, and ideal for office lunches, corporate events, relaxed weddings, and private parties.</p>
+          <div class="card-grid">
+            <article class="menu-card">
+              <h4>Base Buffet</h4>
+              <p class="includes">Includes: pork knuckle + choice of 1 side.</p>
+              <div class="price-row">
+                <div class="price-pill">Lunch: $28</div>
+                <div class="price-pill">Dinner: $34</div>
+              </div>
+            </article>
+            <article class="menu-card featured">
+              <span class="popular-badge">Most Popular</span>
+              <h4>Feast Buffet</h4>
+              <p class="includes">Includes: pork knuckle + choice of 2 sides.</p>
+              <div class="price-row">
+                <div class="price-pill">Lunch: $32</div>
+                <div class="price-pill">Dinner: $38</div>
+              </div>
+            </article>
+            <article class="menu-card">
+              <span class="popular-badge value">Best Value</span>
+              <h4>Fire Feast Buffet</h4>
+              <p class="includes">Includes: pork knuckle + choice of 3 sides.</p>
+              <div class="price-row">
+                <div class="price-pill">Lunch: $38</div>
+                <div class="price-pill">Dinner: $44</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="menu-mignon">
+          <h3 class="menu-group-title">Mignon Buffet Options</h3>
+          <div class="card-grid">
+            <article class="menu-card">
+              <h4>Mignon Base Buffet</h4>
+              <p class="includes">Includes: bacon wrapped filet mignon + choice of 1 side.</p>
+              <div class="price-row">
+                <div class="price-pill">Lunch: $38</div>
+                <div class="price-pill">Dinner: $44</div>
+              </div>
+            </article>
+            <article class="menu-card">
+              <h4>Mignon Feast Buffet</h4>
+              <p class="includes">Includes: bacon wrapped filet mignon + choice of 2 sides.</p>
+              <div class="price-row">
+                <div class="price-pill">Lunch: $42</div>
+                <div class="price-pill">Dinner: $48</div>
+              </div>
+            </article>
+            <article class="menu-card premium">
+              <span class="popular-badge premium">Premium</span>
+              <h4>Mignon Fire Feast Buffet</h4>
+              <p class="includes">Includes: bacon wrapped filet mignon + choice of 3 sides.</p>
+              <div class="price-row">
+                <div class="price-pill">Lunch: $48</div>
+                <div class="price-pill">Dinner: $54</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="menu-plated">
+          <h3 class="menu-group-title">Plated Service</h3>
+          <p class="menu-group-sub">Best for formal dinners, weddings, and premium sit-down events.</p>
+          <div class="card-grid">
+            <article class="menu-card">
+              <h4>Knuckle Plate</h4>
+              <p class="includes">Includes: pork knuckle + choice of 2 sides.</p>
+              <div class="price-row">
+                <div class="price-pill">Lunch: $38</div>
+                <div class="price-pill">Dinner: $44</div>
+              </div>
+            </article>
+            <article class="menu-card">
+              <h4>Knuckle Signature Plate</h4>
+              <p class="includes">Includes: pork knuckle + choice of 3 sides.</p>
+              <div class="price-row">
+                <div class="price-pill">Lunch: $42</div>
+                <div class="price-pill">Dinner: $48</div>
+              </div>
+            </article>
+            <article class="menu-card">
+              <h4>Mignon Plate</h4>
+              <p class="includes">Includes: bacon wrapped filet mignon + choice of 2 sides.</p>
+              <div class="price-row">
+                <div class="price-pill">Lunch: $48</div>
+                <div class="price-pill">Dinner: $55</div>
+              </div>
+            </article>
+            <article class="menu-card premium">
+              <span class="popular-badge premium">Premium</span>
+              <h4>Mignon Signature Plate</h4>
+              <p class="includes">Includes: bacon wrapped filet mignon + choice of 3 sides.</p>
+              <div class="price-row">
+                <div class="price-pill">Lunch: $52</div>
+                <div class="price-pill">Dinner: $59</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="menu-sides">
+          <h3 class="menu-group-title">Sides</h3>
+          <div class="sides-wrap">
+            <div class="side-row">
+              <strong>Mashed Potatoes</strong>
+              <span>Creamy, bold.</span>
+              <span class="price">$5</span>
+            </div>
+            <div class="side-row">
+              <strong>Spinach Rice</strong>
+              <span>Fresh, hearty.</span>
+              <span class="price">$5</span>
+            </div>
+            <div class="side-row">
+              <strong>Potatoes with Fine Herbs</strong>
+              <span>Roasted, crisp.</span>
+              <span class="price">$5</span>
+            </div>
+          </div>
+          <p class="side-extra-note">Additional sides available for $5 per person.</p>
+        </div>
+
+        <div id="menu-drinks">
+          <h3 class="menu-group-title">Drink Options</h3>
+          <div class="drink-grid">
+            <article class="drink-card">
+              <h4>Drink Station</h4>
+              <p class="desc">Classic event beverages.</p>
+              <ul class="drink-list">
+                <li>Coca-Cola</li>
+                <li>Diet Coke</li>
+                <li>Sprite</li>
+                <li>Dr Pepper</li>
+                <li>Bottled water</li>
+              </ul>
+              <div class="drink-price">$4 per person</div>
+            </article>
+
+            <article class="drink-card">
+              <h4>House Craft Lemonade</h4>
+              <p class="desc">Fresh handmade lemonade.</p>
+              <ul class="drink-list">
+                <li>Honey lemonade</li>
+                <li>Strawberry lemonade</li>
+                <li>Raspberry lemonade</li>
+              </ul>
+              <div class="drink-price">$5 per person</div>
+            </article>
+          </div>
+        </div>
+
+        <div id="menu-coffee">
+          <h3 class="menu-group-title">Coffee Service</h3>
+          <div class="coffee-service-wrap">
+            <div class="coffee-note">
+              <h4>100% Colombian Coffee</h4>
+              <p>Fresh-brewed 100% Colombian coffee, served hot and built for events that need a warm finishing touch. Rich aroma, smooth body, and a premium presentation that fits weddings, corporate gatherings, and private celebrations.</p>
+              <p>Available as a specialty add-on for select events.</p>
+              <ul class="coffee-features">
+                <li>Fresh brewed on site or prepared for service</li>
+                <li>Cream, milk, and sugar station available</li>
+                <li>Elegant presentation for premium events</li>
+              </ul>
+            </div>
+            <div class="coffee-visual">
+              <img class="gallery-photo" src="gallery/a_high_resolution_photograph_shows_a_professional.png" alt="Premium coffee service station with 100% Colombian coffee" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+
+        <div id="menu-pricing-notes">
+          <h3 class="menu-group-title">Pricing Notes</h3>
+          <div class="menu-notes" aria-label="Menu notes">
+            <p>Disposable serviceware, staffing, rentals, travel, and custom beverage service may affect final quote.</p>
+            <p>Dietary accommodations available upon request.</p>
+            <p>Large weddings and high-service events may require a custom quote.</p>
+          </div>
+          <div class="pickup-note">
+            <h4>Pickup from Lehi</h4>
+            <p>Want to keep it simple? Pick up your order from our Lehi location by appointment and skip the standard service fee.</p>
+            <span class="pickup-save">Skip Standard 20% Service Fee</span>
+            <p>Great for office lunches, smaller gatherings, and self-serve events.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="event-planning">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Event Planning</p>
+          <h2 class="title-xl">Plan It Right. Feed It Right.</h2>
+          <p class="lead">You set the moment, we execute the food experience. Choose the service style that fits your event flow and guest expectations.</p>
+        </header>
+
+        <div class="planning-grid">
+          <article class="info-card">
+            <h3>Buffet vs Plated</h3>
+            <ul>
+              <li><strong>Buffet:</strong> Fast service, social energy, generous portions, ideal for office lunches and high-movement receptions.</li>
+              <li><strong>Plated:</strong> Controlled pacing, polished presentation, strong fit for formal weddings and seated private events.</li>
+              <li>Both options keep the same KNUCK flavor profile and signature proteins.</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Guest Count + Timeline</h3>
+            <ul>
+              <li>Minimum booking is 20 guests.</li>
+              <li>Weddings and venue-heavy events: book 6 to 12 weeks out when possible.</li>
+              <li>Corporate lunches and office catering: 7 to 21 days works best.</li>
+              <li>Final guest count target: confirm 5 days before event day.</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Venue + Logistics Checklist</h3>
+            <ul>
+              <li>Arrival window and setup access times</li>
+              <li>Parking + load-in distance from kitchen/setup zone</li>
+              <li>Power, lighting, and table footprint for service line</li>
+              <li>Indoor/outdoor backup plan for weather shifts</li>
+              <li>On-site contact for final walk-through</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Staffing + Service Options</h3>
+            <ul>
+              <li>Delivery and setup for ready-to-serve food</li>
+              <li>Buffet line management for high-volume events</li>
+              <li>Plated service support for formal seating plans</li>
+              <li>Breakdown support for clean and efficient closeout</li>
+              <li>Custom menu builds when your event needs more than standard packages</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="fit-grid" aria-label="Event fit guide">
+          <article class="fit-card">
+            <h4>Weddings</h4>
+            <p>Plated for formal pacing, buffet for relaxed receptions with strong guest movement.</p>
+          </article>
+          <article class="fit-card">
+            <h4>Corporate Lunches</h4>
+            <p>Buffet keeps service fast and predictable during tight office schedules.</p>
+          </article>
+          <article class="fit-card">
+            <h4>Private Parties</h4>
+            <p>Choose buffet for social flow or plated when you want a premium sit-down feel.</p>
+          </article>
+          <article class="fit-card">
+            <h4>Office Catering</h4>
+            <p>Simple setup, clear timing, reliable service from drop-off to final cleanup.</p>
+          </article>
+        </div>
+
+        <div class="planning-cta">
+          <p>KNUCK helps turn "just food" into the part everyone remembers. Tell us your date, count, and style; we will map the plan and execute it clean.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#place-order">Start Your Booking</a>
+            <a class="btn btn-ghost" href="tel:+18018823386">Call (801) 882-3386</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream" id="photos">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Photos</p>
+          <h2 class="title-xl">See The Fire In Action</h2>
+          <p class="gallery-intro">From wedding buffets to corporate service and private celebrations, these visuals show how KNUCK brings bold food and polished presentation to the table.</p>
+          <div class="mascot-chip">
+            <img src="Logo%20Mascota/knuck-mascot.jpg" alt="KNUCK mascot badge" loading="lazy" decoding="async">
+            Branded Event Moments
+          </div>
+        </header>
+
+        <div class="gallery-grid">
+          <article class="gallery-group">
+            <h3>Weddings</h3>
+            <div class="gallery-track">
+              <div class="gallery-ph real">
+                <img class="gallery-photo" src="gallery/wedding.png" alt="Wedding catering buffet with pork knuckle and sides" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-ph real">
+                <img class="gallery-photo" src="gallery/a_digital_photograph_captures_a_plated_dish_of_slo.png" alt="Reception plated pork knuckle dinner with sides" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-group">
+            <h3>Corporate Events</h3>
+            <div class="gallery-track single">
+              <div class="gallery-ph real">
+                <img class="gallery-photo" src="gallery/a_photograph_captures_a_corporate_event_catering_s.png" alt="Corporate buffet table with pork knuckle and filet mignon" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-group">
+            <h3>Private Parties</h3>
+            <div class="gallery-track">
+              <div class="gallery-ph real">
+                <img class="gallery-photo" src="gallery/a_photograph_captures_a_family_style_feast_set_on.png" alt="Private party family-style catering table" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-ph real">
+                <img class="gallery-photo" src="gallery/a_photograph_captures_a_backyard_catering_setup_at.png" alt="Backyard event catering setup at sunset" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-group">
+            <h3>Signature Dishes</h3>
+            <div class="gallery-track">
+              <div class="gallery-ph real">
+                <img class="gallery-photo" src="gallery/a_digital_photograph_captures_a_plated_dish_of_slo.png" alt="Plated pork knuckle dinner with sides" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-ph real">
+                <img class="gallery-photo" src="gallery/a_close_up_close_up_digital_photograph_showcases_a.png" alt="Plated bacon-wrapped filet mignon with sides" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-group" style="grid-column: 1 / -1;">
+            <h3>Setups &amp; Presentation</h3>
+            <div class="gallery-track">
+              <div class="gallery-ph real">
+                <img class="gallery-photo" src="gallery/a_digital_photograph_captures_a_plated_dish_of_slo.png" alt="Plated service presentation featuring pork knuckle" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-ph real">
+                <img class="gallery-photo" src="gallery/a_high_resolution_photograph_captures_a_catering_e.png" alt="Branded KNUCK catering venue setup" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="gallery-disclosure">Images shown are AI-generated or AI-enhanced visual representations for marketing purposes. Actual presentation may vary.</p>
+      </div>
+    </section>
+
+    <section class="section" id="place-order">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Place Order</p>
+          <h2 class="title-xl">Book KNUCK Catering</h2>
+          <p class="lead">Send your event details and we will build the right menu and service plan. Front-end form only; connect to backend/email handler when ready.</p>
+          <p class="lead" style="margin-top:8px;">Request time: about 2 minutes. Most responses land within one business day.</p>
+          <div class="mascot-chip">
+            <img src="Logo%20Mascota/knuck-mascot.jpg" alt="KNUCK mascot booking badge" loading="lazy" decoding="async">
+            Fast Booking Support
+          </div>
+        </header>
+
+        <div class="order-wrap">
+          <form class="order-form" id="booking-form" action="#" method="post">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required>
+              </div>
+
+              <div class="field">
+                <label for="event-name">Company / Event Name</label>
+                <input id="event-name" name="event_name" type="text" placeholder="Event or company name">
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="(801) 000-0000" required>
+              </div>
+
+              <div class="field">
+                <label for="preferred-language">Preferred Language</label>
+                <select id="preferred-language" name="preferred_language" required>
+                  <option value="English" selected>English</option>
+                  <option value="Spanish">Espanol</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="event-type">Event Type</label>
+                <select id="event-type" name="event_type" required>
+                  <option value="">Select event type</option>
+                  <option>Wedding</option>
+                  <option>Corporate Lunch</option>
+                  <option>Office Catering</option>
+                  <option>Private Party</option>
+                  <option>Hotel / Event Space</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="service-type">Service Type</label>
+                <select id="service-type" name="service_type" required>
+                  <option value="">Select service type</option>
+                  <option>Full Service / Delivery</option>
+                  <option>Pickup from Lehi</option>
+                </select>
+              </div>
+
+              <p class="form-note" id="pickup-fee-note">Pickup orders are not charged the standard 20% service fee.</p>
+
+              <div class="field">
+                <label for="event-date">Event Date</label>
+                <input id="event-date" name="event_date" type="date" required>
+              </div>
+
+              <div class="field">
+                <label for="guest-count">Guest Count</label>
+                <input id="guest-count" name="guest_count" type="number" min="20" placeholder="Minimum 20" required>
+              </div>
+
+              <div class="field">
+                <label for="location">Location</label>
+                <input id="location" name="location" type="text" placeholder="City / venue address" required>
+              </div>
+
+              <details class="form-advanced field full">
+                <summary>Add Menu Details (Optional)</summary>
+                <div class="advanced-grid">
+              <div class="field">
+                <label for="selected-package">Selected Package</label>
+                <select id="selected-package" name="selected_package">
+                  <option value="">Select package</option>
+                  <optgroup label="Catering Packages">
+                    <option>Base</option>
+                    <option>Feast Package</option>
+                    <option>Fire Feast</option>
+                  </optgroup>
+                  <optgroup label="Buffet Service">
+                    <option>Base Buffet</option>
+                    <option>Feast Buffet</option>
+                    <option>Fire Feast Buffet</option>
+                  </optgroup>
+                  <optgroup label="Mignon Buffet Options">
+                    <option>Mignon Base Buffet</option>
+                    <option>Mignon Feast Buffet</option>
+                    <option>Mignon Fire Feast Buffet</option>
+                  </optgroup>
+                  <optgroup label="Plated Service">
+                    <option>Knuckle Plate</option>
+                    <option>Knuckle Signature Plate</option>
+                    <option>Mignon Plate</option>
+                    <option>Mignon Signature Plate</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="protein-choice">Knuckle or Mignon</label>
+                <select id="protein-choice" name="protein_choice">
+                  <option value="">Select protein</option>
+                  <option>Pork Knuckle</option>
+                  <option>Filet Mignon</option>
+                  <option>Mixed Build</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="tier-choice">Tier</label>
+                <select id="tier-choice" name="tier_choice">
+                  <option value="">Select tier</option>
+                  <option>Base</option>
+                  <option>Feast</option>
+                  <option>Fire Feast</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="meal-period">Lunch or Dinner</label>
+                <select id="meal-period" name="meal_period">
+                  <option value="">Select meal</option>
+                  <option>Lunch</option>
+                  <option>Dinner</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="side-count">Number of Sides</label>
+                <select id="side-count" name="side_count">
+                  <option value="">Select side count</option>
+                  <option>1 side</option>
+                  <option>2 sides</option>
+                  <option>3 sides</option>
+                  <option>Need recommendation</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="service-style">Service Style</label>
+                <select id="service-style" name="service_style">
+                  <option value="">Select service style</option>
+                  <option>Buffet Service</option>
+                  <option>Plated Service</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="drink-option">Drink Option</label>
+                <select id="drink-option" name="drink_option">
+                  <option value="">No drink option selected</option>
+                  <option>Drink Station</option>
+                  <option>House Craft Lemonade</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="coffee-service">Coffee Service Request</label>
+                <select id="coffee-service" name="coffee_service">
+                  <option value="">No coffee service</option>
+                  <option>Yes - request coffee service</option>
+                  <option>Need coffee quote details</option>
+                </select>
+              </div>
+                </div>
+              </details>
+
+              <div class="field full">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" placeholder="Menu goals, timeline, venue details, allergies, service preferences..."></textarea>
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn btn-primary" type="submit">Send Catering Request</button>
+              <a class="btn btn-ghost" href="tel:+18018823386">Call Instead</a>
+            </div>
+          </form>
+
+          <aside class="order-side">
+            <article class="note-card">
+              <h3>What Happens Next</h3>
+              <ul>
+                <li>We review your request and confirm service fit.</li>
+                <li>You receive menu guidance + transparent pricing.</li>
+                <li>We finalize logistics, timeline, and guest count milestones.</li>
+                <li>50% deposit locks your date.</li>
+              </ul>
+            </article>
+
+            <article class="note-card">
+              <h3>Response Time</h3>
+              <p>Most inquiries are answered within one business day. Fast-turn corporate requests can often be handled sooner when capacity allows.</p>
+            </article>
+
+            <article class="note-card">
+              <h3>Language Support</h3>
+              <p>Hablamos Espanol. Select <strong>Preferred Language: Espanol</strong> and your request email will be generated in Spanish.</p>
+            </article>
+
+            <article class="note-card">
+              <h3>Booking Notes</h3>
+              <p>Minimum order is 20 guests. Add 20% service fee and tax. Free setup/delivery in Lehi and Provo. SLC suburbs +$30. Pickup from Lehi is available by appointment and does not include the standard service fee.</p>
+            </article>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream" id="policies">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Policies</p>
+          <h2 class="title-xl">Clear Terms. No Surprises.</h2>
+          <p class="policy-intro">These policies keep planning clean for both sides and help us deliver strong service on event day.</p>
+        </header>
+
+        <div class="policy-list">
+          <details class="policy" open>
+            <summary>Planning</summary>
+            <div class="policy-body">
+              <p>Early planning gives you better menu flexibility and smoother event logistics. Share your date, venue, and expected count as soon as possible so we can hold your slot.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Availability</summary>
+            <div class="policy-body">
+              <p>Dates are first-come, first-served and confirmed only after deposit. Peak wedding and holiday weekends can fill quickly.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Guest Count Confirmation</summary>
+            <div class="policy-body">
+              <p>Final headcount is typically due 5 days before service unless otherwise agreed. Billing is based on the final confirmed count, with a minimum of 20 guests.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Changes to Orders</summary>
+            <div class="policy-body">
+              <p>Menu and logistics changes are welcome when timing allows. Last-minute changes may affect staffing, inventory, and pricing.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Cancellations</summary>
+            <div class="policy-body">
+              <p>Cancellations must be submitted in writing. Deposits secure production and date hold; partial credit or transfer may be offered at KNUCK discretion based on notice and prep status.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Pricing</summary>
+            <div class="policy-body">
+              <p>Listed pricing is per person, food only. Add 20% service fee and applicable tax. Quotes remain valid for the stated approval window.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Payment Terms</summary>
+            <div class="policy-body">
+              <p>A 50% deposit is required to reserve your date. Remaining balance is due before service unless other terms are approved in writing.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Delivery / Travel Fees</summary>
+            <div class="policy-body">
+              <p>Delivery and setup are free in Lehi and Provo. Salt Lake City suburbs are billed +$30. Extended travel may require a custom fee.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Staffing / Service Fees</summary>
+            <div class="policy-body">
+              <p>Service labor needs vary by event style and timeline. Additional staffing may be required for plated service, long service windows, or large guest counts.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Rentals / Setup / Cleanup</summary>
+            <div class="policy-body">
+              <p>Standard food setup is included. Rentals such as specialty tables, linens, or extra service gear can be added as custom line items when requested.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Perishable Food / Food Safety</summary>
+            <div class="policy-body">
+              <p>Food is prepared and transported under safe handling standards. Once service is complete and food is outside active control, safe holding responsibility transfers to the client/site.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Allergy Disclaimer</summary>
+            <div class="policy-body">
+              <p>Tell us about allergies and dietary restrictions during planning. While we can flag and adjust menu items, cross-contact risk cannot be fully eliminated in all environments.</p>
+            </div>
+          </details>
+
+          <details class="policy">
+            <summary>Substitutions / Seasonal Availability</summary>
+            <div class="policy-body">
+              <p>Ingredient quality comes first. If availability shifts, KNUCK may substitute with equivalent or better options and will communicate any meaningful changes.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <header class="section-head">
+            <p class="eyebrow">About</p>
+            <h2 class="title-xl">Not Your Standard Catering Line</h2>
+          </header>
+          <p>KNUCK started with one obsession: make comfort meat hit harder than anything people expect from catering. The brand grew around fire, craft, and a refusal to serve forgettable event food.</p>
+          <p>Our signature slow-roasted pork knuckle defines the table. Crisp skin, deep smoke, heavy flavor, and portions that actually satisfy a room.</p>
+          <p>We serve weddings, office managers, corporate teams, private hosts, and event venues across Utah County and surrounding cities. Premium feel, direct communication, strong hospitality.</p>
+          <p>KNUCK is bold but welcoming: handcrafted food, clean execution, and no corporate fluff. Just memorable plates and reliable service when your event actually matters.</p>
+        </div>
+
+        <div class="about-panels">
+          <article class="about-box">
+            <h3>Fire-Driven Craft</h3>
+            <p>Built around open-fire flavor and careful prep, not assembly-line shortcuts.</p>
+          </article>
+          <article class="about-box">
+            <h3>Signature Identity</h3>
+            <p>The hero is pork knuckle. The rest of the menu supports it with purpose.</p>
+          </article>
+          <article class="about-box">
+            <h3>Hospitality That Delivers</h3>
+            <p>From first call to final cleanup, we keep service direct, smooth, and accountable.</p>
+          </article>
+          <article class="about-box">
+            <h3>Who We Serve</h3>
+            <p>Weddings, corporate lunches, office catering, private parties, hotels, and event spaces.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <header class="section-head">
+            <p class="eyebrow">Contact</p>
+            <h2 class="title-xl">Let's Lock Your Date</h2>
+            <p class="lead">Ready to feed your event with serious flavor? Reach out and we will map menu, service style, and timing fast.</p>
+          </header>
+          <div class="btn-row">
+            <a class="btn btn-dark" href="tel:+18018823386">Call (801) 882-3386</a>
+            <a class="btn btn-dark" href="#place-order">Place Order Request</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-item">
+            <span class="label">Phone</span>
+            <span class="value"><a href="tel:+18018823386">(801) 882-3386</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="label">Email</span>
+            <span class="value"><a href="mailto:orders.knucks@gmail.com">orders.knucks@gmail.com</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="label">Service Area</span>
+            <ul class="service-area-list">
+              <li>Lehi</li>
+              <li>Provo</li>
+              <li>Orem</li>
+              <li>American Fork</li>
+              <li>Draper</li>
+              <li>Utah County</li>
+              <li>Salt Lake City Suburbs</li>
+            </ul>
+          </div>
+          <div class="contact-item">
+            <span class="label">Hours</span>
+            <span class="value">By appointment / event schedule</span>
+          </div>
+          <div class="contact-item">
+            <span class="label">Instagram</span>
+            <span class="value"><a href="https://instagram.com/knuckscatering" target="_blank" rel="noopener noreferrer">@knuckscatering</a></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-strip" aria-label="Final booking call to action">
+      <div class="container">
+        <div>
+          <h3 class="title-md">Ready To Serve Fire At Your Event?</h3>
+          <p>Tell us your date, guest count, and service style. We will send a clear path to booking.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#place-order">Start Order</a>
+          <a class="btn btn-ghost" href="tel:+18018823386">Call Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <a class="footer-brand" href="#home">KNUCK<span>.</span></a>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#home">Home</a>
+          <a href="#menu">Menu</a>
+          <a href="#event-planning">Event Planning</a>
+          <a href="#photos">Photos</a>
+          <a href="#place-order">Place Order</a>
+          <a href="#policies">Policies</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>(c) 2026 KNUCK. Cooked with Fire. Served with Pride.</span>
+        <span><strong>@knuckscatering</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const nav = document.querySelector('.site-nav');
+      const linksWrap = document.getElementById('siteLinks');
+      const toggle = document.getElementById('menuToggle');
+      const links = Array.from(document.querySelectorAll('a[href^="#"]'));
+      const bookingForm = document.getElementById('booking-form');
+      const serviceTypeSelect = document.getElementById('service-type');
+      const pickupFeeNote = document.getElementById('pickup-fee-note');
+      const navSectionLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+      const heroVariantBlocks = Array.from(document.querySelectorAll('[data-hero-variant]'));
+
+      function resolveHeroVariant() {
+        if (!heroVariantBlocks.length) return;
+        const params = new URLSearchParams(window.location.search);
+        const requested = params.get('hero');
+        const variant = requested === 'b' ? 'b' : 'a';
+        heroVariantBlocks.forEach(function (block) {
+          block.classList.toggle('active', block.getAttribute('data-hero-variant') === variant);
+        });
+      }
+
+      resolveHeroVariant();
+
+      function closeMenu() {
+        linksWrap.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      toggle.addEventListener('click', function () {
+        const open = linksWrap.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      links.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          const id = this.getAttribute('href');
+          if (!id || id === '#') return;
+          const target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          const navHeight = nav.offsetHeight;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+          window.scrollTo({ top, behavior: 'smooth' });
+          closeMenu();
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!linksWrap.classList.contains('open')) return;
+        if (linksWrap.contains(e.target) || toggle.contains(e.target)) return;
+        closeMenu();
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 860) {
+          linksWrap.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      const observedSections = ['#home', '#menu', '#event-planning', '#photos', '#place-order', '#policies', '#about', '#contact']
+        .map(function (id) {
+          return document.querySelector(id);
+        })
+        .filter(Boolean);
+
+      if (observedSections.length) {
+        const sectionObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            const id = '#' + entry.target.id;
+            navSectionLinks.forEach(function (link) {
+              link.classList.remove('active');
+            });
+            navSectionLinks
+              .filter(function (link) {
+                return link.getAttribute('href') === id;
+              })
+              .forEach(function (link) {
+                link.classList.add('active');
+              });
+          });
+        }, { rootMargin: '-38% 0px -52% 0px', threshold: 0.01 });
+
+        observedSections.forEach(function (section) {
+          sectionObserver.observe(section);
+        });
+      }
+
+      function updatePickupNote() {
+        if (!serviceTypeSelect || !pickupFeeNote) return;
+        const pickupSelected = serviceTypeSelect.value === 'Pickup from Lehi';
+        pickupFeeNote.classList.toggle('active', pickupSelected);
+      }
+
+      if (serviceTypeSelect) {
+        serviceTypeSelect.addEventListener('change', updatePickupNote);
+        updatePickupNote();
+      }
+
+      if (bookingForm) {
+        bookingForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          if (!bookingForm.reportValidity()) return;
+
+          const data = new FormData(bookingForm);
+          const get = function (key) {
+            return String(data.get(key) || '').trim();
+          };
+
+          const isSpanish = get('preferred_language') === 'Spanish';
+          const subjectPrefix = isSpanish ? 'Solicitud de Catering KNUCK - ' : 'KNUCK Catering Request - ';
+          const subject = subjectPrefix + (get('event_name') || get('event_type') || (isSpanish ? 'Nuevo Evento' : 'New Event'));
+
+          const lineIf = function (label, key) {
+            const value = get(key);
+            return value ? label + value : null;
+          };
+
+          const detailsEs = [
+            'Nombre: ' + get('name'),
+            lineIf('Empresa / Nombre del Evento: ', 'event_name'),
+            'Correo Electronico: ' + get('email'),
+            'Telefono: ' + get('phone'),
+            'Tipo de Evento: ' + get('event_type'),
+            'Tipo de Servicio: ' + get('service_type'),
+            lineIf('Paquete Seleccionado: ', 'selected_package'),
+            lineIf('Knuckle o Mignon: ', 'protein_choice'),
+            lineIf('Nivel: ', 'tier_choice'),
+            lineIf('Lunch o Dinner: ', 'meal_period'),
+            lineIf('Cantidad de Guarniciones: ', 'side_count'),
+            lineIf('Estilo de Servicio: ', 'service_style'),
+            lineIf('Opcion de Bebida: ', 'drink_option'),
+            lineIf('Solicitud de Cafe: ', 'coffee_service'),
+            'Fecha del Evento: ' + get('event_date'),
+            'Cantidad de Invitados: ' + get('guest_count'),
+            'Ubicacion: ' + get('location')
+          ].filter(Boolean);
+
+          const detailsEn = [
+            'Name: ' + get('name'),
+            lineIf('Company / Event Name: ', 'event_name'),
+            'Email: ' + get('email'),
+            'Phone: ' + get('phone'),
+            'Event Type: ' + get('event_type'),
+            'Service Type: ' + get('service_type'),
+            lineIf('Selected Package: ', 'selected_package'),
+            lineIf('Knuckle or Mignon: ', 'protein_choice'),
+            lineIf('Tier: ', 'tier_choice'),
+            lineIf('Lunch or Dinner: ', 'meal_period'),
+            lineIf('Number of Sides: ', 'side_count'),
+            lineIf('Service Style: ', 'service_style'),
+            lineIf('Drink Option: ', 'drink_option'),
+            lineIf('Coffee Service Request: ', 'coffee_service'),
+            'Event Date: ' + get('event_date'),
+            'Guest Count: ' + get('guest_count'),
+            'Location: ' + get('location')
+          ].filter(Boolean);
+
+          const body = isSpanish
+            ? [
+                'Hola KNUCK,',
+                '',
+                'Quiero solicitar catering para un evento.',
+                '',
+                detailsEs.join('\n'),
+                '',
+                'Notas:',
+                get('notes') || '(ninguna)',
+                '',
+                'Gracias.'
+              ].join('\n')
+            : [
+                'Hi KNUCK,',
+                '',
+                'I am requesting catering for an event.',
+                '',
+                detailsEn.join('\n'),
+                '',
+                'Notes:',
+                get('notes') || '(none)',
+                '',
+                'Thanks.'
+              ].join('\n');
+
+          const mailto = 'mailto:orders.knucks@gmail.com?subject='
+            + encodeURIComponent(subject)
+            + '&body='
+            + encodeURIComponent(body);
+
+          window.location.href = mailto;
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
